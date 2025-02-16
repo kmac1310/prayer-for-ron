@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Prayer Energy for Ron</title>
+    <style>
+        :root {
+            --primary-color: #ffd700;
+            --secondary-color: #ffffff;
+            --text-color: #ffffff;
+            --background-color: #000000;
+            --accent-glow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Crimson Text', serif;
+            background: var(--background-color);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prayer-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: var(--text-color);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            position: relative;
+        }
+
+        .prayer-text::first-letter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            float: left;
+            margin-right: 0.5rem;
+            line-height: 1;
+        }
+
+        .prayer-text::before,
+        .prayer-text::after {
+            content: '✧';
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            position: absolute;
+            opacity: 0.6;
+        }
+
+        .prayer-text::before {
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .prayer-text::after {
+            bottom: 1rem;
+            right: 1rem;
+        }
+
+        .button {
+            font-family: 'Cinzel', serif;
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 1rem;
+            text-shadow: var(--accent-glow);
+            box-shadow: var(--accent-glow);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .button:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 215, 0, 0.1);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            from { transform: rotate(45deg) translateY(-100%); }
+            to { transform: rotate(45deg) translateY(100%); }
+        }
+
+        .energy-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            background: radial-gradient(circle at center, 
+                rgba(255, 215, 0, 0.3) 0%,
+                rgba(255, 255, 255, 0.2) 30%,
+                transparent 70%);
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+
+        .energy-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100 0 L120 80 L200 100 L120 120 L100 200 L80 120 L0 100 L80 80 Z" fill="rgba(255,215,0,0.1)"/></svg>') center/50px 50px;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .counter {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            color: var(--primary-color);
+        }
+
+        .combined-prayer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(74, 144, 226, 0.1);
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .feedback-message {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="prayer-text">
+            God, please give Ron the strength to heal. His family loves him dearly and needs him. It's not his time. Please guide him back to health with your power and grace.
+        </div>
+
+        <button id="sendPrayer" class="button">Send Prayer Energy Now</button>
+        
+        <div id="counter" class="counter">Prayers sent: 0</div>
+        
+        <div id="feedbackMessage" class="feedback-message"></div>
+    </div>
+
+    <div class="combined-prayer">
+        Please join us at 2:00 PM for a combined energy prayer session for Ron.
+    </div>
+
+    <div id="energyEffect" class="energy-effect"></div>
+
+    <script>
+        let prayerCount = 0;
+        const encouragements = [
+            "Your energy is building. Together, we are lifting Ron with light and love.",
+            "Your continued prayers create a powerful force of healing.",
+            "Each prayer adds to the collective energy surrounding Ron.",
+            "Your faith and love make a difference.",
+            "Thank you for your dedication to Ron's healing."
+        ];
+
+        function sendPrayerEnergy() {
+            // Disable button during animation
+            const button = document.getElementById('sendPrayer');
+            button.disabled = true;
+
+            // Trigger vibration if supported
+            if (navigator.vibrate) {
+                navigator.vibrate(200);
+            }
+
+            // Visual effect
+            const effect = document.getElementById('energyEffect');
+            effect.style.opacity = '0.8';
+            
+            // Pulse animation on prayer text
+            document.querySelector('.prayer-text').classList.add('pulse');
+
+            // Update counter
+            prayerCount++;
+            document.getElementById('counter').textContent = `Prayers sent: ${prayerCount}`;
+
+            // Show feedback message
+            const feedbackMessage = document.getElementById('feedbackMessage');
+            feedbackMessage.textContent = 'Your prayer energy has been sent. Thank you for your love and faith.';
+            feedbackMessage.style.opacity = '1';
+
+            // Show encouragement message after multiple prayers
+            if (prayerCount > 1) {
+                setTimeout(() => {
+                    const encouragement = encouragements[Math.floor(Math.random() * encouragements.length)];
+                    feedbackMessage.textContent = encouragement;
+                }, 3000);
+            }
+
+            // Reset effects after delay
+            setTimeout(() => {
+                effect.style.opacity = '0';
+                document.querySelector('.prayer-text').classList.remove('pulse');
+                button.disabled = false;
+                button.textContent = 'Send Prayer Energy Again';
+            }, 3000);
+        }
+
+        document.getElementById('sendPrayer').addEventListener('click', sendPrayerEnergy);
+    </script>
+</body>
+</html>
