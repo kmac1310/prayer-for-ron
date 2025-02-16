@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <title>Prayer Energy for Ron</title>
+    <title>Prayer Energy for Ronald M Yuhas</title>
     <style>
         :root {
             --primary-color: #ffd700;
@@ -122,6 +122,37 @@
             to { transform: rotate(45deg) translateY(100%); }
         }
 
+        .counter {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            color: var(--primary-color);
+            letter-spacing: 0.5px;
+        }
+
+        .combined-prayer {
+            font-family: 'Cinzel', serif;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 1rem;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .feedback-message {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
         .energy-effect {
             position: fixed;
             top: 0;
@@ -154,29 +185,6 @@
             to { transform: rotate(360deg); }
         }
 
-        .counter {
-            font-size: 1.1rem;
-            margin: 1rem 0;
-            color: var(--primary-color);
-        }
-
-        .combined-prayer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(74, 144, 226, 0.1);
-            padding: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .feedback-message {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -191,7 +199,7 @@
 <body>
     <div class="container">
         <div class="prayer-text">
-            God, please give Ron the strength to heal. His family loves him dearly and needs him. It's not his time. Please guide him back to health with your power and grace.
+            God, please give Ronald M Yuhas the strength to heal. His family loves him dearly and needs him. It's not his time. Please guide him back to health with your power and grace.
         </div>
 
         <button id="sendPrayer" class="button">Send Prayer Energy Now</button>
@@ -202,7 +210,7 @@
     </div>
 
     <div class="combined-prayer">
-        Please join us at 2:00 PM for a combined energy prayer session for Ron.
+        Please join us at 2:00 PM for a combined energy prayer session for Ronald M Yuhas.
     </div>
 
     <div id="energyEffect" class="energy-effect"></div>
@@ -210,11 +218,11 @@
     <script>
         let prayerCount = 0;
         const encouragements = [
-            "Your energy is building. Together, we are lifting Ron with light and love.",
+            "Your energy is building. Together, we are lifting Ronald M Yuhas with light and love.",
             "Your continued prayers create a powerful force of healing.",
-            "Each prayer adds to the collective energy surrounding Ron.",
+            "Each prayer adds to the collective energy surrounding Ronald M Yuhas.",
             "Your faith and love make a difference.",
-            "Thank you for your dedication to Ron's healing."
+            "Thank you for your dedication to Ronald M Yuhas's healing."
         ];
 
         function sendPrayerEnergy() {
